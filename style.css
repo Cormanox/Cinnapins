@@ -1,0 +1,356 @@
+/* =========================================
+   STYLE.CSS - VERSIÓN FINAL (MÓVIL OPTIMIZADO)
+   ========================================= */
+
+/* 1. DEFINICIÓN DE COLORES Y VARIABLES */
+:root {
+    --fondo-body: #f0f8ff;
+    --fondo-tarjeta: #ffffff;
+    --texto-principal: #546e7a;
+    --texto-titulo: #29b6f6;
+    --rosa-btn: #ffb7d5;
+    --rosa-btn-hover: #ff80ab;
+    --amarillo-placeholder: #fff59d;
+    --celeste-borde: #b3e5fc;
+    --sombra-card: 0 10px 20px rgba(179, 229, 252, 0.4);
+    --sombra-texto: 2px 2px 0px white, 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --fondo-body: #1a2639;
+    --fondo-tarjeta: #24344d;
+    --texto-principal: #cfd8dc;
+    --texto-titulo: #81d4fa;
+    --rosa-btn: #f06292;
+    --rosa-btn-hover: #ec407a;
+    --amarillo-placeholder: #fbc02d;
+    --celeste-borde: #37474f;
+    --sombra-card: 0 10px 20px rgba(0, 0, 0, 0.4);
+    --sombra-texto: none;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--fondo-body);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- NAVEGACIÓN --- */
+nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--celeste-borde);
+    min-height: 130px; 
+}
+
+[data-theme="dark"] nav {
+    background: rgba(36, 52, 77, 0.85);
+}
+
+/* CONTENEDOR DEL LOGO (ESCRITORIO) */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    z-index: 1001;
+}
+
+.logo-img {
+    height: 160px; /* Altura fija en PC para que se vea grande */
+    width: auto;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+}
+
+.logo-img:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: var(--rosa-btn);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+    border-radius: 10px;
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.btn-tema {
+    background: var(--fondo-tarjeta);
+    border: 2px solid var(--texto-principal);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background-image: radial-gradient(var(--celeste-borde) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--texto-titulo);
+    margin-bottom: 20px;
+    text-shadow: var(--sombra-texto);
+    font-weight: 700;
+}
+
+.btn-cta {
+    background-color: var(--rosa-btn);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(255, 183, 213, 0.5);
+}
+
+.btn-cta:hover {
+    background-color: var(--rosa-btn-hover);
+    transform: translateY(-3px);
+}
+
+/* --- FILTROS Y PRODUCTOS --- */
+.contenedor-productos {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--texto-titulo);
+    margin-bottom: 40px;
+    text-shadow: var(--sombra-texto);
+}
+
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    background: transparent;
+    border: 2px solid var(--rosa-btn);
+    color: var(--texto-principal);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover, .btn-filtro.activo {
+    background-color: var(--rosa-btn);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.grid-productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.tarjeta {
+    flex: 0 1 300px;
+    background: var(--fondo-tarjeta);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--sombra-card);
+    border: 4px solid var(--fondo-tarjeta);
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.tarjeta.oculto { display: none; }
+.tarjeta.mostrar { animation: fadeUp 0.5s ease forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.imagen-placeholder {
+    background-color: var(--amarillo-placeholder);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.info {
+    padding: 10px 25px 30px;
+    text-align: center;
+}
+
+.info h3 {
+    font-size: 1.4rem;
+    color: var(--texto-principal);
+    margin-bottom: 5px;
+}
+
+.precio {
+    font-size: 1.6rem;
+    color: var(--texto-titulo);
+    font-weight: 800;
+    margin: 10px 0 20px;
+    display: block;
+}
+
+.btn-comprar {
+    width: 100%;
+    background-color: #4fc3f7;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #0288d1;
+    transition: all 0.1s;
+}
+
+.btn-comprar:hover {
+    background-color: #29b6f6;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0288d1;
+}
+
+.btn-comprar:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 50px;
+    border-top: 1px solid var(--celeste-borde);
+}
+
+/* =========================================
+   DISEÑO MÓVIL OPTIMIZADO
+   ========================================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 15px;
+        min-height: auto;
+    }
+
+    .logo-container {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-bottom: 15px;
+        top: 0;
+        /* Aseguramos que el contenedor esté centrado */
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 🔥 EL TRUCO PARA MÓVIL 🔥 */
+    .logo-img {
+        height: auto;        /* Deja que la altura sea automática */
+        width: 70%;          /* Que ocupe el 70% del ancho de la pantalla */
+        max-width: 300px;    /* Pero que no se pase de 300px si el celular es muy ancho */
+        min-width: 200px;    /* Que tampoco sea diminuto */
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* Enlaces un poquito más grandes para que sean fáciles de tocar */
+    nav ul li a {
+        font-size: 1.1rem;
+    }
+
+    .hero h1 { font-size: 2.2rem; }
+    
+    .grid-productos { gap: 25px; }
+    
+    .tarjeta { flex: 0 1 100%; max-width: 380px; }
+}
+
+@media (max-width: 480px) {
+    .nav-right { gap: 10px; }
+    
+    /* En celulares muy pequeños, aumentamos aún más el ancho permitido */
+    .logo-img {
+        width: 80%; 
+    }
+    
+    .btn-cta { width: 100%; }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinnapins | Pines & Bisutería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" href="images/logo.webp" type="image/webp">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/icon.webp" alt="Cinnapins Texto" class="logo-img">
+            </div>
+            
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button id="theme-toggle" class="btn-tema" aria-label="Cambiar modo oscuro/claro">
+                    🌙
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Accesorios que cuentan tu historia</h1>
+        <p>En Cinnapins creamos pines personalizados, llaveros y bisutería con mucha magia.</p>
+        <button onclick="document.getElementById('catalogo').scrollIntoView({behavior: 'smooth'})" class="btn-cta">
+            Ver Todo
+        </button>
+    </section>
+
+    <section id="catalogo" class="contenedor-productos">
+        <h2 class="titulo-seccion">Nuestras Creaciones</h2>
+        
+        <div class="filtros-container">
+            <button class="btn-filtro activo" onclick="filtrarProductos('todos')">Todos</button>
+            <button class="btn-filtro" onclick="filtrarProductos('pin')">Pines</button>
+            <button class="btn-filtro" onclick="filtrarProductos('llavero')">Llaveros</button>
+        </div>
+
+        <div class="grid-productos">
+            
+            <div class="tarjeta" category="pin">
+                <div class="imagen-placeholder">
+                    <span>🌟</span>
+                </div>
+                <div class="info">
+                    <h3>Pin Estrella</h3>
+                    <p class="precio">$5.00</p>
+                    <button class="btn-comprar" onclick="pedirPorWhatsapp('Pin Estrella')">Lo quiero</button>
+                </div>
+            </div>
+
+            <div class="tarjeta" category="pin">
+                <div class="imagen-placeholder"><span>💖</span></div>
+                <div class="info">
+                    <h3>Pin Corazón</h3>
+                    <p class="precio">$4.50</p>
+                    <button class="btn-comprar" onclick="pedirPorWhatsapp('Pin Corazón')">Lo quiero</button>
+                </div>
+            </div>
+
+            <div class="tarjeta" category="llavero">
+                <div class="imagen-placeholder"><span>🗝️</span></div>
+                <div class="info">
+                    <h3>Llavero Luna</h3>
+                    <p class="precio">$7.00</p>
+                    <button class="btn-comprar" onclick="pedirPorWhatsapp('Llavero Luna')">Lo quiero</button>
+                </div>
+            </div>
+
+            <div class="tarjeta" category="pin">
+                <div class="imagen-placeholder"><span>🐰</span></div>
+                <div class="info">
+                    <h3>Pin Bunny</h3>
+                    <p class="precio">$6.00</p>
+                    <button class="btn-comprar" onclick="pedirPorWhatsapp('Pin Bunny')">Lo quiero</button>
+                </div>
+            </div>
+
+            <div class="tarjeta" category="llavero">
+                <div class="imagen-placeholder"><span>🌈</span></div>
+                <div class="info">
+                    <h3>Llavero Arcoíris</h3>
+                    <p class="precio">$7.50</p>
+                    <button class="btn-comprar" onclick="pedirPorWhatsapp('Llavero Arcoíris')">Lo quiero</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>✨ © 2026 Cinnapins - Erick Garcia Burgos ✨</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
