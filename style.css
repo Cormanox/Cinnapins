@@ -1,22 +1,28 @@
 /* =========================================
-   STYLE.CSS - VERSIÓN FINAL (MÓVIL OPTIMIZADO)
+   STYLE.CSS - VERSIÓN FINAL (CELESTE SUAVE)
    ========================================= */
 
 /* 1. DEFINICIÓN DE COLORES Y VARIABLES */
 :root {
-    --fondo-body: #f0f8ff;
-    --fondo-tarjeta: #ffffff;
-    --texto-principal: #546e7a;
-    --texto-titulo: #29b6f6;
+    /* --- MODO DÍA (Ajustado: Menos blanco, más Celeste) --- */
+    --fondo-body: #e3f2fd;         /* CAMBIO: Un celeste pastel mucho más presente (Cinnapins Blue) */
+    --fondo-tarjeta: #ffffff;      /* Blanco puro solo en tarjetas para leer bien */
+    --texto-principal: #455a64;    /* Gris azulado oscuro para mejor lectura sobre celeste */
+    --texto-titulo: #0288d1;       /* Un azul un poco más fuerte para títulos */
+    
+    /* Acentos */
     --rosa-btn: #ffb7d5;
     --rosa-btn-hover: #ff80ab;
     --amarillo-placeholder: #fff59d;
     --celeste-borde: #b3e5fc;
-    --sombra-card: 0 10px 20px rgba(179, 229, 252, 0.4);
-    --sombra-texto: 2px 2px 0px white, 4px 4px 0px rgba(0,0,0,0.1);
+    
+    /* Sombras */
+    --sombra-card: 0 10px 20px rgba(2, 136, 209, 0.15); /* Sombra azulada suave */
+    --sombra-texto: 2px 2px 0px white, 4px 4px 0px rgba(0,0,0,0.05);
 }
 
 [data-theme="dark"] {
+    /* --- MODO NOCHE (Profundo) --- */
     --fondo-body: #1a2639;
     --fondo-tarjeta: #24344d;
     --texto-principal: #cfd8dc;
@@ -47,8 +53,9 @@ body {
 
 /* --- NAVEGACIÓN --- */
 nav {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    /* Hacemos el nav un pelín más transparente para que se vea el celeste de fondo */
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -56,12 +63,13 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--celeste-borde);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Borde más sutil */
     min-height: 130px; 
 }
 
 [data-theme="dark"] nav {
     background: rgba(36, 52, 77, 0.85);
+    border-bottom: 2px solid var(--celeste-borde);
 }
 
 /* CONTENEDOR DEL LOGO (ESCRITORIO) */
@@ -74,7 +82,7 @@ nav {
 }
 
 .logo-img {
-    height: 160px; /* Altura fija en PC para que se vea grande */
+    height: 160px;
     width: auto;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
 }
@@ -135,15 +143,17 @@ nav ul li a:hover::after {
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background-image: radial-gradient(var(--celeste-borde) 1px, transparent 1px);
-    background-size: 20px 20px;
+    /* Patrón de puntos blanco sutil sobre el fondo celeste */
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 30px 30px;
+    opacity: 0.9;
 }
 
 .hero h1 {
     font-size: 3rem;
     color: var(--texto-titulo);
     margin-bottom: 20px;
-    text-shadow: var(--sombra-texto);
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.8); /* Sombra blanca para resaltar */
     font-weight: 700;
 }
 
@@ -176,7 +186,7 @@ nav ul li a:hover::after {
     font-size: 2.2rem;
     color: var(--texto-titulo);
     margin-bottom: 40px;
-    text-shadow: var(--sombra-texto);
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.6);
 }
 
 .filtros-container {
@@ -196,6 +206,7 @@ nav ul li a:hover::after {
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    background-color: rgba(255,255,255,0.5); /* Ligeramente blanco para leerse bien */
 }
 
 .btn-filtro:hover, .btn-filtro.activo {
@@ -218,7 +229,7 @@ nav ul li a:hover::after {
     overflow: hidden;
     position: relative;
     box-shadow: var(--sombra-card);
-    border: 4px solid var(--fondo-tarjeta);
+    border: 4px solid white; /* Borde blanco puro para separar del fondo celeste */
 }
 
 .tarjeta:hover {
@@ -292,7 +303,7 @@ footer {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-top: 50px;
-    border-top: 1px solid var(--celeste-borde);
+    border-top: 1px solid rgba(255,255,255,0.5);
 }
 
 /* =========================================
@@ -312,17 +323,16 @@ footer {
         transform: none;
         margin-bottom: 15px;
         top: 0;
-        /* Aseguramos que el contenedor esté centrado */
         text-align: center;
         width: 100%;
     }
 
-    /* 🔥 EL TRUCO PARA MÓVIL 🔥 */
+    /* TRUCO MÓVIL: Logo ancho y adaptable */
     .logo-img {
-        height: auto;        /* Deja que la altura sea automática */
-        width: 70%;          /* Que ocupe el 70% del ancho de la pantalla */
-        max-width: 300px;    /* Pero que no se pase de 300px si el celular es muy ancho */
-        min-width: 200px;    /* Que tampoco sea diminuto */
+        height: auto;
+        width: 70%;
+        max-width: 300px;
+        min-width: 200px;
     }
 
     .nav-right {
@@ -332,7 +342,6 @@ footer {
         gap: 15px;
     }
 
-    /* Enlaces un poquito más grandes para que sean fáciles de tocar */
     nav ul li a {
         font-size: 1.1rem;
     }
@@ -346,11 +355,6 @@ footer {
 
 @media (max-width: 480px) {
     .nav-right { gap: 10px; }
-    
-    /* En celulares muy pequeños, aumentamos aún más el ancho permitido */
-    .logo-img {
-        width: 80%; 
-    }
-    
+    .logo-img { width: 80%; }
     .btn-cta { width: 100%; }
 }
