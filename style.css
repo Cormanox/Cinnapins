@@ -358,3 +358,31 @@ footer {
     .logo-img { width: 80%; }
     .btn-cta { width: 100%; }
 }
+/* style.css - Agrega esto al final */
+
+/* --- MASCOTA EN EL FOOTER --- */
+.mascota-container {
+    margin-bottom: 15px; /* Espacio entre el GIF y el texto */
+    display: flex;
+    justify-content: center;
+}
+
+.mascota-gif {
+    height: 80px; /* Un tamaño pequeño y lindo */
+    width: auto;
+    /* Opcional: Una pequeña animación para que parezca que flota */
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* Animación suave de flotación */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); } /* Sube 10px y baja */
+}
+
+/* En móvil lo hacemos un poquitín más pequeño */
+@media (max-width: 768px) {
+    .mascota-gif {
+        height: 60px;
+    }
+}
